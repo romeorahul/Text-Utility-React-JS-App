@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactDOM } from "react";
 import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
 
 function Nav(props) {
   return (
@@ -29,14 +30,14 @@ function Nav(props) {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="#">
                   About
                 </a>
               </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="/"
+                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -46,12 +47,12 @@ function Nav(props) {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <a className="dropdown-item" href="#">
                       Action
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <a className="dropdown-item" href="#">
                       Another action
                     </a>
                   </li>
@@ -59,7 +60,7 @@ function Nav(props) {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <a className="dropdown-item" href="#">
                       Something else here
                     </a>
                   </li>
@@ -68,7 +69,7 @@ function Nav(props) {
               <li className="nav-item">
                 <a
                   className="nav-link disabled"
-                  href="/"
+                  href="#"
                   tabindex="-1"
                   aria-disabled="true"
                 >
@@ -77,10 +78,22 @@ function Nav(props) {
               </li>
             </ul>
 
+            {/* color pallete for the app */}
+            <div className="d-flex">
+                <div className="bg-primary rounded mx-2" style={{height:'20px',width:'20px', cursor:'pointer'}} onClick={()=> {props.toggleMode('primary')}}></div>
+
+                <div className="bg-warning rounded mx-2" style={{height:'20px',width:'20px', cursor:'pointer'}} onClick={()=> {props.toggleMode('warning')}}></div>
+
+                <div className="bg-danger rounded mx-2" style={{height:'20px',width:'20px', cursor:'pointer'}} onClick={()=> {props.toggleMode('danger')}}></div>
+
+                <div className="bg-success rounded mx-2" style={{height:'20px',width:'20px', cursor:'pointer'}} onClick={()=> {props.toggleMode('success')}}></div>
+            </div>
+        
+
             <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark':'light'}`}>
               <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
-              onClick = {props.toggleMode} />
-              <label className="form-check-label" htmlfor="flexSwitchCheckDefault">Enable/Disable Dark Mode</label>
+              onClick ={()=> {props.toggleMode('null')}} />
+              <label className="form-check-label" htmlfor="flexSwitchCheckDefault">Dark/Light Mode</label>
             </div>
           </div>
         </div>

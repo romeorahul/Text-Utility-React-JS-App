@@ -1,33 +1,39 @@
 import React, { useState } from "react";
 
-export default function About() {
-  const [dark, setDark] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+export default function About(props) {
+  // const [dark, setDark] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
 
-  const [text, setText] = useState("Enable Darkmode");
+  // const [text, setText] = useState("Enable Darkmode");
 
-  const enableDark = () => {
-    if (dark.color == "black") {
-      setDark({
-        color: "white",
-        backgroundColor: "black",
-      });
-      setText("Disable Dark Mode");
-    }
-     else {
-        // if(dark.color == 'white')
-        setDark({
-            color:'black',
-            backgroundColor:'white',
-        });
+  // const enableDark = () => {
+  //   if (dark.color == "black") {
+  //     setDark({
+  //       color: "white",
+  //       backgroundColor: "black",
+  //     });
+  //     setText("Disable Dark Mode");
+  //   }
+  //    else {
+  //       // if(dark.color == 'white')
+  //       setDark({
+  //           color:'black',
+  //           backgroundColor:'white',
+  //       });
 
-        setText('Enable dark mode');
-     }
-  };
+  //       setText('Enable dark mode');
+  //    }
+  // };
+
+  let myStyle = {
+    color: props.mode === 'dark' ? 'white' : '#242321',
+    backgroundColor: props.mode === 'dark' ? '#242321' : 'white'
+  }
+
   return (
-    <div className="container mt-3 p-3" style={dark}>
+    <div className="container mt-3 p-3" style={myStyle}>
       <h1>About Us</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
@@ -39,7 +45,7 @@ export default function About() {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              style={dark}
+              style={myStyle}
             >
               Accordion Item #1
             </button>
@@ -50,7 +56,7 @@ export default function About() {
             aria-labelledby="headingOne"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={dark}>
+            <div className="accordion-body" style={myStyle}>
               <strong>This is the first item's accordion body.</strong> It is
               shown by default, until the collapse plugin adds the appropriate
               classes that we use to style each element. These classes control
@@ -71,7 +77,7 @@ export default function About() {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={dark}
+              style={myStyle}
             >
               Accordion Item #2
             </button>
@@ -82,7 +88,7 @@ export default function About() {
             aria-labelledby="headingTwo"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={dark}>
+            <div className="accordion-body" style={myStyle}>
               <strong>This is the second item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classes that we use to style each element. These classes control
@@ -103,7 +109,7 @@ export default function About() {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
-              style={dark}
+              style={myStyle}
             >
               Accordion Item #3
             </button>
@@ -114,7 +120,7 @@ export default function About() {
             aria-labelledby="headingThree"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={dark}>
+            <div className="accordion-body" style={myStyle}>
               <strong>This is the third item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classes that we use to style each element. These classes control
@@ -127,9 +133,9 @@ export default function About() {
           </div>
         </div>
       </div>
-      <button onClick={enableDark} className="btn btn-danger mt-2">
+      {/* <button onClick={enableDark} className="btn btn-danger mt-2">
         {text}
-      </button>
+      </button> */}
     </div>
   );
 }

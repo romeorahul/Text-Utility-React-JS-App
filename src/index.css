@@ -15,3 +15,14 @@ code {
 body {
   background: #ebebeb;
 }
+
+#footer {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
